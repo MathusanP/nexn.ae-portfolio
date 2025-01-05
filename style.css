@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.title {
+    font: 1em Outfit;
+    font-size: 35px;
+    flex: 1;
+    text-align: center;
+    padding: 30px;
+}
+
+.sidebar {
+    position: fixed; /* Change from 'absolute' to 'fixed' */
+    top: 0;
+    left: -250px; /* Initially hidden */
+    height: 100vh; /* Full viewport height */
+    width: 250px;
+    background-color: thistle;
+    padding: 0.4rem 0.8rem;
+    transition: all 0.5s ease;
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+}
+
+.sidebar.active {
+    left: 0; /* Slide in when active */
+}
+
+.sidebar #btn {
+    position: absolute;
+    color: black;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.sidebar ul {
+    margin-top: 2rem; 
+    padding: 10px;
+}
+
+
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+.sidebar ul li a {
+    color: black;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+    position: relative;
+    transition: color 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidebar ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease;
+}
+
+.sidebar ul li a:hover::after {
+    width: 100%;
+}
+
+#menu-btn {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it stays above the sidebar */
+    color: black;
+}
