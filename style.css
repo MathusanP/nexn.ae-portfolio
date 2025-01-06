@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ body {
 }
 
 .title {
-    position: relative; /* Ensure it's layered above the video */
+    position: relative; 
     font-size: 35px;
     text-align: center;
     padding: 30px;
@@ -58,9 +58,9 @@ body {
     display: flex;
     align-items: center;
     border-radius: 0.8rem;
-    position: relative; /* Required for the ::after pseudo-element */
+    position: relative; 
     padding: 10px;
-    transition: color 0.3s ease; /* Smooth text color transition */
+    transition: color 0.3s ease; 
 }
 
 .sidebar ul li a::after {
@@ -71,12 +71,12 @@ body {
     width: 0;
     height: 2px;
     background-color: black;
-    transition: width 0.8s ease; /* Smooth underline expansion */
+    transition: width 0.8s ease; 
 }
 
 
 .sidebar ul li a:hover::after {
-    width: 100%; /* Expand the underline on hover */
+    width: 100%; 
 }
 
 #menu-btn {
@@ -85,8 +85,19 @@ body {
     left: 1rem;
     font-size: 1.5rem;
     cursor: pointer;
-    z-index: 200; /* Ensure it stays above the video */
+    z-index: 200; 
+    color: white;
+}
+
+#menu-btn.active{
     color: black;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    overflow-y: auto;
+    min-height: 100vh; 
+    background-color: black;
 }
 
 .video-bg {
@@ -97,5 +108,134 @@ body {
     height: 100vh;
     object-fit: cover;
     z-index: -1;
-    filter: brightness(50%); /* Lower brightness to darken */
+    filter: brightness(50%);
+}
+.video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+}
+
+.section-gap {
+    font-family: DM Sans;
+    position: absolute;
+    top: 105%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    text-align: center;
+    width: 100%;
+}
+
+
+.section-heading {
+    font-size: 2.5rem;
+    font-family: 'Outfit', sans-serif;
+    color: white;
+    margin: 0;
+    z-index: 10;
+    top: 90%
+}
+.showreel {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1rem;
+    color: white;
+    text-transform: uppercase;
+    border: 2px solid white;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 3rem; 
+    text-decoration: none; 
+}
+.showreel:hover {
+    background-color: white;
+    color: black;
+    border-color: #fff;
+}
+
+.section-heading {
+    text-align: center;
+    margin-top: 0; 
+    margin-bottom: 10px; 
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: relative; 
+    z-index: 10; 
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; 
+    margin: 20px;
+    padding: 20px 10px; 
+    margin-top: 120vh; 
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1/1; 
+    cursor: pointer;
+    border-radius: 8px; 
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.5s ease; 
+    border-radius: 8px; 
+}
+
+.grid-item:hover img {
+    transform: scale(1.1); 
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: white;
+    text-align: center;
+}
+
+.grid-item:hover .overlay {
+    opacity: 1; 
+}
+
+.overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.overlay a {
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.overlay a:hover {
+    background: white;
+    color: black;
 }
